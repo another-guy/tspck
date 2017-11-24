@@ -1,7 +1,7 @@
 {
   "name": "tspck",
-  "version": "0.0.1",
-  "description": "TypeScript package generator.\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C",
+  "version": "1.0.0-alpha.0",
+  "description": "TypeScript package generator.",
   "main": "./dist/index.js",
   "scripts": {
     "test": "karma start",
@@ -27,6 +27,7 @@
   "homepage": "https://github.com/another-guy/tspck#readme",
   "devDependencies": {
     "@types/chai": "^4.0.5",
+    "@types/commander": "^2.11.0",
     "@types/mocha": "^2.2.44",
     "chai": "^4.1.2",
     "karma": "^1.7.1",
@@ -39,5 +40,8 @@
     "puppeteer": "^0.13.0",
     "tslint": "^5.8.0",
     "typescript": "^2.6.1"
+  },
+  "dependencies": {
+    "commander": "^2.12.1"
   }
 }
