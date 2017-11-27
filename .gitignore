@@ -1,6 +1,7 @@
 node_modules/
 coverage/
-dist/*
+dist/
+bin/
 src/*.js
 test/*.js
 test/report.html

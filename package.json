@@ -1,10 +1,13 @@
 {
   "name": "tspck",
-  "version": "1.0.0-alpha.3",
+  "version": "1.0.0-alpha.14",
   "description": "TypeScript package generator.",
   "preferGlobal": true,
-  "bin": "./dist/tspck.js",
-  "main": "./dist/tspck.js",
+  "bin": {
+    "tspck": "./bin/tspck.js",
+    "tspck-init": "./bin/tspck-init.js"
+  },
+  "main": "./bin/tspck.js",
   "scripts": {
     "test": "karma start",
     "test:single-run": "karma start --single-run",
