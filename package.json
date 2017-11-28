@@ -9,6 +9,10 @@
   },
   "main": "./bin/tspck.js",
   "scripts": {
+    "clean": "rm -rf bin/ dist/",
+    "compile": "tsc && cp -r src/assets/ bin/assets/",
+    "clean-compile": "npm run clean && npm run compile",
+
     "test": "karma start",
     "test:single-run": "karma start --single-run",
     "tslint": "tslint -c ./.config/tslint.json 'src/**/*.ts' -t stylish",

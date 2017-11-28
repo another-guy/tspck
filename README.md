@@ -2,6 +2,12 @@
 
 ## Dev notes
 
+### Main recompilation command
+
+```sh
+npm run clean-compile
+```
+
 ### Rebuild from scratch and smoke test
 
 ```sh
