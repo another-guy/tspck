@@ -1,10 +1,9 @@
 #!/usr/bin/env node
 
-import { ChildProcess, spawn } from 'child_process';
 import * as commander from 'commander';
 import { createReadStream, createWriteStream } from 'fs';
 import { resolve } from 'path';
-import { execute } from './execute';
+import { executeInteractive, executeNonInteractive } from './execute';
 import { initShortDescription } from './i18n';
 
 const initCommand =
@@ -17,11 +16,13 @@ const initCommand =
 (async () => {
 
   try {
-    const gitInit = spawn(`git`, [`init`]);
-    const gitInitResult = await execute(gitInit);
+    await executeNonInteractive(`git`, [ `init` ]);
+
     createReadStream(resolve(__dirname, `assets`, `.gitignore`)).pipe(createWriteStream('.gitignore'));
+
+    await executeInteractive(`npm.cmd`, [ `init` ]);
   } catch (error) {
-    throw new Error(error);
+    console.warn(`Critical failure in on of the steps: ${ JSON.stringify(error, null, 2) }`);
   }
 
 })();
