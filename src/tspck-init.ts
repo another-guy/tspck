@@ -43,6 +43,7 @@ const initCommand =
     copyFile(__dirname, `assets`, `settings.json`, `.vscode`, `settings.json`);
     await overrideNpmScripts();
     await npmInstallPackages();
+    await gitCommit();
 
   } catch (error) {
     console.warn(`Critical failure in on of the steps: ${ JSON.stringify(error, null, 2) }`);
