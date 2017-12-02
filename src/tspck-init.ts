@@ -33,14 +33,14 @@ const initCommand =
   try {
 
     await gitInit();
-    copyFile(`asset`, `gitignore`, ``, `.gitignore`);
+    copyFile(__dirname, `assets`, `gitignore`, ``, `.gitignore`);
     await npmInit();
     await createDirectories();
     await tscInit();
     await overrideTsConfig();
-    copyFile(`asset`, `karma.conf.js`, `.config`, `karma.conf.js`);
-    copyFile(`asset`, `tslint.json`, `.config`, `tslint.json`);
-    copyFile(`asset`, `settings.json`, `.vscode`, `settings.json`);
+    copyFile(__dirname, `assets`, `karma.conf.js`, `.config`, `karma.conf.js`);
+    copyFile(__dirname, `assets`, `tslint.json`, `.config`, `tslint.json`);
+    copyFile(__dirname, `assets`, `settings.json`, `.vscode`, `settings.json`);
     await overrideNpmScripts();
     await npmInstallPackages();
 
