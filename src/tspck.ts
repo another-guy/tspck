@@ -7,5 +7,5 @@ const tspckCommand =
   commander
     .description(`tspck is a tool for dealing with TypeScript packages.`)
     .command(`init`, initShortDescription)
-    .version(`1.0.0-alpha.16`)
+    .version(`1.0.0-alpha.17`)
     .parse(process.argv);

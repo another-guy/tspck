@@ -1,9 +1,8 @@
 #!/usr/bin/env node
 
 import * as commander from 'commander';
-import { createReadStream, createWriteStream } from 'fs';
-import { resolve } from 'path';
 
+import { copyFile } from './file-system/copy-file';
 import { initShortDescription } from './i18n';
 import { createDirectories } from './steps/create-directories';
 import { gitInit } from './steps/git-init';
@@ -29,27 +28,19 @@ const initCommand =
 
 // TODO colorize the console output
 
-const copyAssetFile =
-  (pathPart1: string, pathPart2: string = '') => {
-    const assetSourcePath = resolve(__dirname, `assets`, pathPart2 !== '' ? pathPart2 : pathPart1);
-    const assetDestinationPath = pathPart2 !== '' ? resolve(pathPart1, pathPart2) : pathPart1;
-    console.warn(`${ assetSourcePath } ===> ${ assetDestinationPath }`);
-    createReadStream(assetSourcePath).pipe(createWriteStream(assetDestinationPath));
-  };
-
 (async () => {
 
   try {
 
     await gitInit();
-    copyAssetFile(`.gitignore`);
+    copyFile(`asset`, `gitignore`, ``, `.gitignore`);
     await npmInit();
     await createDirectories();
     await tscInit();
     await overrideTsConfig();
-    copyAssetFile(`.config`, `karma.conf.js`);
-    copyAssetFile(`.config`, `tslint.json`);
-    copyAssetFile(`.vscode`, `settings.json`);
+    copyFile(`asset`, `karma.conf.js`, `.config`, `karma.conf.js`);
+    copyFile(`asset`, `tslint.json`, `.config`, `tslint.json`);
+    copyFile(`asset`, `settings.json`, `.vscode`, `settings.json`);
     await overrideNpmScripts();
     await npmInstallPackages();
 
