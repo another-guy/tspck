@@ -5,6 +5,7 @@ import * as commander from 'commander';
 import { copyFile } from './file-system/copy-file';
 import { initShortDescription } from './i18n';
 import { createDirectories } from './steps/create-directories';
+import { gitCommit } from './steps/git-commit';
 import { gitInit } from './steps/git-init';
 import { npmInit } from './steps/npm-init';
 import { npmInstallPackages } from './steps/npm-install-packages';
