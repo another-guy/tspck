@@ -16,7 +16,7 @@ import { overrideTsConfig } from './steps/tsc-override-tsconfig';
 const initCommand =
   commander
     .description(initShortDescription)
-    .option(`-o, --ooo`, `OOOOO.`)
+    // .option(`-o, --ooo`, `OOOOO.`)
     .parse(process.argv);
 
 // tslint:disable:no-console
@@ -35,15 +35,19 @@ const initCommand =
 
     await gitInit();
     copyFile(__dirname, `assets`, `gitignore`, ``, `.gitignore`);
-    await npmInit();
+
     await createDirectories();
-    await tscInit();
-    await overrideTsConfig();
     copyFile(__dirname, `assets`, `karma.conf.js`, `.config`, `karma.conf.js`);
     copyFile(__dirname, `assets`, `tslint.json`, `.config`, `tslint.json`);
     copyFile(__dirname, `assets`, `settings.json`, `.vscode`, `settings.json`);
-    await overrideNpmScripts();
+
+    await npmInit();
     await npmInstallPackages();
+    await overrideNpmScripts();
+
+    await tscInit('./');
+    await overrideTsConfig();
+
     await gitCommit();
 
   } catch (error) {
