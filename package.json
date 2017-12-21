@@ -1,6 +1,6 @@
 {
   "name": "tspck",
-  "version": "1.0.0-alpha.25",
+  "version": "1.0.0-beta.26",
   "description": "TypeScript package generator.",
   "preferGlobal": true,
   "bin": {
@@ -12,7 +12,6 @@
     "clean": "rm -rf bin/ dist/",
     "compile": "tsc && cp -r src/assets/ bin/assets/",
     "clean-compile": "npm run clean && npm run compile",
-
     "test": "karma start",
     "test:single-run": "karma start --single-run",
     "tslint": "tslint -c ./.config/tslint.json 'src/**/*.ts' -t stylish",
@@ -51,6 +50,7 @@
     "typescript": "^2.6.1"
   },
   "dependencies": {
+    "chalk": "^2.3.0",
     "commander": "^2.12.1"
   }
 }
